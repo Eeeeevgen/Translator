@@ -30,6 +30,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'bootstrap-sass',       '3.3.6'
+gem 'yandex_translator'
+# For passwords hashes
+gem 'bcrypt',               '3.1.7'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
