@@ -6,12 +6,12 @@ $gray-medium-light: #eaeaea;
 
 /* общие */
 body {
-  padding-top: 60px;
+  padding-top: 60px !important;
 }
 
-section {
-  overflow: auto;
-}
+//section {
+//  overflow: auto;
+//}
 
 textarea {
   resize: vertical;
@@ -81,7 +81,7 @@ footer {
     float: left;
   }
   ul {
-    margin-top: 0px;
+    margin-top: 5px;
     list-style: none;
     li {
       float: left;
@@ -148,3 +148,7 @@ select, option {
   width: 100%;
   margin-top: 45px;
 }
+
+//@media screen and (max-width: 768px) {
+//  body { padding-top: 0px; }
+//}

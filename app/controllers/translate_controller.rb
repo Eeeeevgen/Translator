@@ -48,4 +48,7 @@ class TranslateController < ApplicationController
   def key_define
     @key = 'trnsl.1.1.20170512T143138Z.5362d1c74bf6990b.c6041721d49c95b672f7bd37b79a462b981f5423'
   end
+
+  def temp
+  end
 end
