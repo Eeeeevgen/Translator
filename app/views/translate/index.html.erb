@@ -1,4 +1,4 @@
-﻿<%= form_tag("translate", id: "tr", method: "post") %>
+﻿<%= form_tag("/", id: "tr", method: "post") %>
 
 <div class="row">
   <div class="col-md-6 form-group">
@@ -6,21 +6,21 @@
   </div>
 
   <div class="col-md-6">
-    <%= text_area_tag(:output, value=@out, form:"tr", readonly:true, class:'form-control') %>
+    <%= text_area_tag(:output, value=@out, readonly:true, class:'form-control') %>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-2 col-md-offset-4">
     <%= select_tag(:input_lang,
-                   options_for_select([['Auto', ''], ['Russian', 'ru'], ['English', 'en'], ['German', 'de'], ['French', 'fr']], @inp_lang),
+                   options_for_select([['Auto', '']] + @lang_list, @inp_lang),
                    form:"tr",
                    class:'selectpicker form-control') %>
   </div>
 
   <div class="col-md-2 ">
     <%= select_tag(:output_lang,
-                   options_for_select([['Russian', 'ru'], ['English', 'en'], ['German', 'de'], ['French', 'fr']], @out_lang),
+                   options_for_select(@lang_list, @out_lang),
                    form:"tr",
                    class:'form-control') %>
   </div>
@@ -28,7 +28,7 @@
 
 <div class="row">
   <div class="col-md-2 col-md-offset-5">
-    <%= submit_tag("Search", form:"tr", class:'form-control') %>
+    <%= submit_tag("Translate", form:"tr", class:'btn btn-primary') %>
   </div>
 </div>
 

@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass',       '3.3.6'
-gem 'yandex_translator'
+gem 'yandex_translator', '~> 0.1.6'
 # For passwords hashes
 gem 'bcrypt',               '3.1.7'
 

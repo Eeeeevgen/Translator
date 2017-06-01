@@ -193,7 +193,7 @@ GEM
     websocket-extensions (0.1.2)
     xpath (2.1.0)
       nokogiri (~> 1.3)
-    yandex_translator (0.1.5)
+    yandex_translator (0.1.6)
       http (~> 2.2)
       yard (~> 0.9.9)
     yard (0.9.9)
@@ -222,7 +222,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  yandex_translator
+  yandex_translator (~> 0.1.6)
 
 BUNDLED WITH
    1.15.0
