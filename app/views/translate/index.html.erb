@@ -13,14 +13,14 @@
 <div class="row">
   <div class="col-xs-2 col-xs-offset-4">
     <%= select_tag(:input_lang,
-                   options_for_select([['Auto', '']] + @lang_list, @inp_lang),
+                   options_for_select([['Auto', '']] + @lang_list, params[:input_lang]),
                    form:"tr",
                    class:'selectpicker form-control') %>
   </div>
 
   <div class="col-xs-2">
     <%= select_tag(:output_lang,
-                   options_for_select(@lang_list, @out_lang),
+                   options_for_select(@lang_list, params[:output_lang]),
                    form:"tr",
                    class:'form-control') %>
   </div>

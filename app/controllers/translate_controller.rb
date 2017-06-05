@@ -1,17 +1,19 @@
 class TranslateController < ApplicationController
-  attr_accessor :key, :out, :inp, :inp_lang, :out_lang, :lang_list
-  @@lang_list = nil
+  attr_accessor :out, :lang_list
 
   before_action :lang_list
 
+  @@lang_list = nil
+
   def lang_list
     unless @@lang_list
-      key_define
-      t = YandexTranslator::Translator.new(@key)
+      key = key_define
+      t = YandexTranslator::Translator.new(key)
 
       begin
         @@lang_list = t.lang_list('en')['langs']
         @@lang_list = @@lang_list.each.map { |key, value| [value, key]}
+        @@lang_list.sort!
       rescue YandexTranslator::YandexError => e
         @@lang_list = []
         flash.now[:danger] = e.message
@@ -24,18 +26,16 @@ class TranslateController < ApplicationController
 
   def index
     if request.post?
-      key_define
-      t = YandexTranslator::Translator.new(@key)
-      @inp = params[:input]
-      @inp_lang = params[:input_lang]
-      @out_lang = params[:output_lang]
-      lang = if @inp_lang
-               @out_lang
+      key = key_define
+      t = YandexTranslator::Translator.new(key)
+      params[:input]
+      lang = if params[:input_lang]
+               params[:output_lang]
              else
-               @inp_lang + '-' + @out_lang
+               params[:input_lang] + '-' + params[:output_lang]
              end
       begin
-        @out = @inp.blank? ? nil : t.translate(params[:input], lang)
+        @out = params[:input].blank? ? nil : t.translate(params[:input], lang)
       rescue YandexTranslator::YandexError => e
         @out = ''
         flash.now[:danger] = e.message
@@ -46,9 +46,6 @@ class TranslateController < ApplicationController
   end
 
   def key_define
-    @key = 'trnsl.1.1.20170512T143138Z.5362d1c74bf6990b.c6041721d49c95b672f7bd37b79a462b981f5423'
-  end
-
-  def temp
+    'trnsl.1.1.20170512T143138Z.5362d1c74bf6990b.c6041721d49c95b672f7bd37b79a462b981f5423'
   end
 end
