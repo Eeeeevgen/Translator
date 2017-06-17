@@ -34,6 +34,7 @@ gem 'bootstrap-sass',       '3.3.6'
 gem 'yandex_translator', '~> 0.1.6'
 # For passwords hashes
 gem 'bcrypt',               '3.1.7'
+gem 'authlogic'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
