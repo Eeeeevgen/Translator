@@ -15,18 +15,18 @@
 
 
 <div class="row row-centered">
-    <div class="col-centered">
-      <%= select_tag(:input_lang,
-                     options_for_select([['Auto', '']] + @lang_list, params[:input_lang]),
-                     form:"tr",
-                     class:'selectpicker form-control') %>
-    </div>
-    <div class="col-centered">
-      <%= select_tag(:input_lang,
-                     options_for_select([['Auto', '']] + @lang_list, params[:input_lang]),
-                     form:"tr",
-                     class:'selectpicker form-control') %>
-    </div>
+  <div class="col-centered">
+    <%= select_tag(:input_lang,
+                   options_for_select([['Auto', '']] + @lang_list, params[:input_lang]),
+                   form:"tr",
+                   class:'selectpicker form-control') %>
+  </div>
+  <div class="col-centered">
+    <%= select_tag(:output_lang,
+                   options_for_select(@lang_list, params[:output_lang]),
+                   form:"tr",
+                   class:'selectpicker form-control') %>
+  </div>
 </div>
 
 <div class="row row-centered">

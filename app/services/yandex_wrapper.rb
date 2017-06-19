@@ -1,6 +1,7 @@
 class YandexWrapper
   @@lang_list = nil
   @@lang_list_raw = nil
+  @@error = nil
 
   def self.lang_list
     unless @@lang_list
@@ -27,11 +28,16 @@ class YandexWrapper
            end
     begin
       out = input.blank? ? nil : t.translate(input, lang)
+      @@error = nil
     rescue YandexTranslator::YandexError => e
       out = ''
-      flash.now[:danger] = e.message
+      @@error = {type: :danger, message: e.message}
     end
     out
+  end
+
+  def self.error
+    @@error
   end
 
   protected
@@ -47,9 +53,10 @@ class YandexWrapper
 
         begin
           @@lang_list_raw = t.lang_list('en')['langs']
+          @@error = nil
         rescue YandexTranslator::YandexError => e
           @@lang_list_raw = []
-          flash.now[:danger] = e.message
+          @@error = {type: :danger, message: e.message}
         else
           # Other exceptions
         end
