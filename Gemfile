@@ -35,6 +35,10 @@ gem 'yandex_translator', '~> 0.1.6'
 # For passwords hashes
 gem 'bcrypt',               '3.1.7'
 gem 'authlogic'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'redis'
+gem 'redis-namespace'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

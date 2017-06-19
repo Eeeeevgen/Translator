@@ -9,9 +9,9 @@ body {
   padding-top: 60px !important;
 }
 
-//section {
-//  overflow: auto;
-//}
+section {
+  overflow: auto;
+}
 
 textarea {
   resize: vertical;
@@ -125,21 +125,47 @@ select, option {
 //  }
 //}
 
-//.checkbox {
-//  margin-top: -10px;
-//  margin-bottom: 10px;
-//  span {
-//    margin-left: 25px;
-//    font-weight: normal;
-//    align: bottom;
-//  }
-//}
+#history{
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-//#session_remember_me {
-//  width: auto;
-//  margin-left: 0;
-//  //align: top
-//}
+#history th:nth-child(1) {
+  width: 160px;
+}
+
+#history th:nth-child(2), #history th:nth-child(3) {
+  width: 120px;
+}
+
+#history th:nth-child(4), #history th:nth-child(5) {
+  width: 400px;
+}
+
+#history th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  //margin-left: 10px;
+  //float: left;
+  span {
+    margin-left: 25px;
+    //font-weight: normal;
+    align: bottom;
+  }
+}
+
+#user_session_remember_me {
+  width: auto;
+  margin-left: 0;
+  //align: top
+}
 
 //разное
 .debug_dump {
