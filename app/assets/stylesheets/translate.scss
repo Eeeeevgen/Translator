@@ -50,20 +50,26 @@ p {
   line-height: 1.7em;
 }
 
-/* заголовок */
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+///* заголовок */
+//#logo {
+//  float: left;
+//  margin-right: 10px;
+//  font-size: 1.7em;
+//  color: white;
+//  letter-spacing: -1px;
+//  padding-top: 9px;
+//  font-weight: bold;
+//  &:hover {
+//    color: white;
+//    text-decoration: none;
+//  }
+//}
+
+.dropdown-menu {
+  width: 100%;
+  text-align: right;
 }
+
 
 /* подвал */
 footer {
@@ -81,14 +87,24 @@ footer {
     float: left;
   }
   ul {
+    padding: 5px !important;
     margin-top: 5px;
     list-style: none;
     li {
       float: left;
       margin-left: 15px;
     }
+
+    li:nth-child(1) {
+      margin-left: 0;
+    }
   }
 }
+
+//#footer-left {
+//  margin-left: 0;
+//  padding-left: 0;
+//}
 
 /* формы */
 input, select, .uneditable-input {
@@ -102,9 +118,6 @@ textarea {
   background: white !important;
 }
 
-select, option {
-  //text-align:right;
-}
 
 //input {
 //  height: auto !important;
@@ -126,7 +139,8 @@ select, option {
 //}
 
 #history{
-  width: auto;
+  width: 1360px;
+  table-layout: fixed;
   margin-left: auto;
   margin-right: auto;
 }
@@ -148,12 +162,22 @@ select, option {
   vertical-align: middle;
 }
 
+.row-centered {
+  text-align:center;
+}
+
+.col-centered{
+  width: 150px;
+  display: inline-block;
+  float: none;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 
 .checkbox {
   margin-top: -10px;
   margin-bottom: 10px;
-  //margin-left: 10px;
-  //float: left;
   span {
     margin-left: 25px;
     //font-weight: normal;
