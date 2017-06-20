@@ -5,7 +5,8 @@ class YandexWrapper
 
   def self.lang_list
     unless @@lang_list
-      @@lang_list = lang_list_raw.each.map { |key, value| [value, key]}
+      @@lang_list = lang_list_raw
+      @@lang_list = @@lang_list.each.map { |key, value| [value, key]}
       @@lang_list.sort!
     end
     @@lang_list
@@ -48,18 +49,7 @@ class YandexWrapper
     def self.lang_list_raw
       unless @@lang_list_raw
         puts "LANGS RELOAD"
-        key = Rails.application.secrets.yandex_key
-        t = YandexTranslator::Translator.new(key)
-
-        begin
-          @@lang_list_raw = t.lang_list('en')['langs']
-          @@error = nil
-        rescue YandexTranslator::YandexError => e
-          @@lang_list_raw = []
-          @@error = {type: :danger, message: e.message}
-        else
-          # Other exceptions
-        end
+        @@lang_list_raw = YAML.load_file("app/assets/yml/lang_list.yml")
       end
       @@lang_list_raw
     end
