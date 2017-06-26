@@ -2,6 +2,7 @@ class YandexWrapper
   @@lang_list = nil
   @@lang_list_raw = nil
   @@error = nil
+  @@detected = nil
 
   def self.lang_list
     unless @@lang_list
@@ -28,7 +29,9 @@ class YandexWrapper
              input_lang + '-' + output_lang
            end
     begin
-      out = input.blank? ? nil : t.translate(input, lang)
+      out = input.blank? ? nil : t.translate(input, lang, options: 1)
+      # puts t.detected
+      @@detected = t.detected
       @@error = nil
     rescue YandexTranslator::YandexError => e
       out = ''
@@ -39,6 +42,10 @@ class YandexWrapper
 
   def self.error
     @@error
+  end
+
+  def self.detected
+    @@detected
   end
 
   protected

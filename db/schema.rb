@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618104653) do
+ActiveRecord::Schema.define(version: 20170626104256) do
 
   create_table "translations", force: :cascade do |t|
     t.integer "user_id"
-    t.string "input_lang"
-    t.string "output_lang"
-    t.text "input"
-    t.text "output"
+    t.string "input_lang", null: false
+    t.string "output_lang", null: false
+    t.text "input", null: false
+    t.text "output", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_translations_on_user_id"
@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(version: 20170618104653) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "crypted_password"
-    t.string "password_salt"
-    t.string "persistence_token"
+    t.string "email", null: false
+    t.string "crypted_password", null: false
+    t.string "password_salt", null: false
+    t.string "persistence_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lang", default: "en"
   end
 
 end

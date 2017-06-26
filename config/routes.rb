@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'translate#index'
   post '/' => 'translate#index'
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit]
   resources :user_sessions, only: [:create, :destroy]
 
   delete 'sign_out' => 'user_sessions#destroy', as: :sign_out

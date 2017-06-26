@@ -16,6 +16,9 @@ class TranslateController < ApplicationController
         flash.now[YandexWrapper.error[:type]] = YandexWrapper.error[:message]
       end
       if current_user
+        if params[:input_lang].blank?
+          params[:input_lang] = YandexWrapper.detected
+        end
         current_user.translations.create(input_lang: params[:input_lang], output_lang: params[:output_lang], input: params[:input], output: @out)
       end
     else

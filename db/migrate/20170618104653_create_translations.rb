@@ -3,10 +3,10 @@ class CreateTranslations < ActiveRecord::Migration[5.1]
     create_table :translations do |t|
       t.references :user, index: true
 
-      t.string :input_lang
-      t.string :output_lang
-      t.text :input
-      t.text :output
+      t.string :input_lang, null: false
+      t.string :output_lang, null: false
+      t.text :input, null: false
+      t.text :output, null: false
 
       t.timestamps
     end
