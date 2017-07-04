@@ -1,0 +1,14 @@
+footer.footer
+  .container
+    .row
+      nav
+        ul#footer-left.pull-left
+          li
+            = t('powered')
+            a[href="http://translate.yandex.ru"]
+              = " " + t('powered_a')
+        ul.pull-right
+          li
+            = link_to t("about"), 'https://github.com/Eeeeevgen/Translator', target: :_blank
+          li
+            = link_to t("contact"), 'mailto: kozlov.evg.a@gmail.com'

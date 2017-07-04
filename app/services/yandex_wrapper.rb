@@ -5,11 +5,9 @@ class YandexWrapper
   @@detected = nil
 
   def self.lang_list
-    unless @@lang_list
-      @@lang_list = lang_list_raw
-      @@lang_list = @@lang_list.each.map { |key, value| [value, key]}
-      @@lang_list.sort!
-    end
+    @@lang_list = lang_list_raw[I18n.locale]
+    @@lang_list = @@lang_list.each.map { |key, value| [value, key]}
+    @@lang_list.sort!
     @@lang_list
   end
 

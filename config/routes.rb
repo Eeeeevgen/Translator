@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   get 'sign_up' => 'users#new', as: :sign_up
   post 'sign_up' => 'users#create', as: :sign_up_post
+
+  get 'users/:id/edit' => 'users#edit'
+  patch 'users/:id/edit' => 'users#update'
 end

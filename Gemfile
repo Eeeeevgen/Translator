@@ -40,6 +40,9 @@ gem 'bootstrap-will_paginate'
 gem 'redis'
 gem 'redis-namespace'
 
+gem 'slim'
+gem 'pundit'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

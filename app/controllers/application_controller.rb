@@ -1,5 +1,25 @@
 class ApplicationController < ActionController::Base
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :permission_denied
+
   protect_from_forgery with: :exception
+  before_action :set_locale
+  helper_method :current_user_session, :current_user
+
+  def set_locale
+    if current_user
+      I18n.locale = current_user.lang
+    else
+      I18n.locale = I18n.default_locale
+    end
+  end
+
+  def puts_marked(input)
+    puts 1111111111
+    puts input
+    puts 1111111111
+  end
 
   private
 
@@ -13,5 +33,8 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.user
     end
 
-    helper_method :current_user_session, :current_user
+    def permission_denied
+      flash[:danger] = t("Authorization error")
+      redirect_to request.referrer || root_path
+    end
 end

@@ -9,28 +9,39 @@ class UsersController < ApplicationController
       flash[:success] = "Account registered!"
       redirect_to root_path
     else
-      puts '1111'
-      # render :new
       render new_user_path
     end
   end
 
   def show
-    if !current_user || current_user.id != params[:id].to_i
-      flash[:danger] = "Access denied!"
-      redirect_to root_path
-    else
-      @translations = current_user.translations.paginate(page: params[:page], :per_page => 5)
-    end
+    @user = User.find(params[:id])
+    authorize @user
+
+    @translations = @user.translations.paginate(page: params[:page], :per_page => 5)
   end
 
   def edit
+    @user = User.find(params[:id])
+    authorize @user
+  end
 
+  def update
+    @user = User.find(params[:id])
+    authorize @user
+
+    if @user.update_attributes(users_params)
+      I18n.locale = users_params[:lang]
+      flash.now[:success] = t(:language_changed)
+    else
+      flash.now[:danger] = 'Language didn\'t updated'
+    end
+
+    render :edit
   end
 
   private
 
     def users_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :password_confirmation, :lang)
     end
 end
