@@ -16,4 +16,11 @@ Rails.application.routes.draw do
 
   get 'users/:id/edit' => 'users#edit'
   patch 'users/:id/edit' => 'users#update'
+
+  namespace :api do
+    namespace :v1 do
+      get '/translate' => 'translate#translate'
+      post '/translate' => 'translate#translate'
+    end
+  end
 end

@@ -1,29 +1,32 @@
 - provide(:title, t('translation_history'))
 h1
   = t('translation_history')
-= will_paginate @translations
+
+= will_paginate @translations, inner_window: 2, outer_window: 0
+
 table#history.table.table-bordered.table-striped[style="word-wrap: break-word"]
   tr
     th
-      = t('Time')
+      = Translation.human_attribute_name('created_at')
     th
-      = t('Input language')
+      = Translation.human_attribute_name('input_lang')
     th
-      = t('Output language')
+      = Translation.human_attribute_name('output_lang')
     th
-      = t('Input text')
+      = Translation.human_attribute_name('input')
     th
-      = t('Output text')
+      = Translation.human_attribute_name('output')
   - @translations.each do |translation|
     tr
       td
         = translation.created_at.strftime('%d.%m.%Y %H:%M:%S')
       td
-        = YandexWrapper.lang_decode(translation.input_lang)
+        = LANG_LIST_RAW[I18n.locale][translation.input_lang]
       td
-        = YandexWrapper.lang_decode(translation.output_lang)
+        = LANG_LIST_RAW[I18n.locale][translation.output_lang]
       td
         = translation.input
       td
         = translation.output
-= will_paginate @translations
+
+= will_paginate @translations, inner_window: 1, outer_window: 0

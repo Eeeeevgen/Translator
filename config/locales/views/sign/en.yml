@@ -1,0 +1,9 @@
+en:
+  sign_up_h: "Sign up"
+  password_confirmation: "Confirmation"
+  register: "Register"
+
+  sign_in_h: "Sign in"
+  password: "Password"
+  remember: "Remember me on this computer"
+  log_in: "Log in"

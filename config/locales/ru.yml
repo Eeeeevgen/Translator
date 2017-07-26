@@ -1,48 +1,13 @@
 ru:
-  hello: "Привет мир!"
-
-  home: "Главная страница"
-  sign_up: "Регситрация"
-  sign_in: "Вход"
-  sign_out: "Выход"
-  account: "Пользователь"
-  translation_history: "История переводов"
-
-
-  powered: "Перведено"
-  powered_a: "Яндекс Переводчиком"
-  about: "О сайте"
-  contact: "Контакты"
-
-  settings: "Настройки"
-  choose_language:  "Выберите язык"
-  language_changed: "Язык изменен"
-
   auto: "Авто"
   translate: "Перевести"
-
-  sign_in_h: "Вход"
-  password: "Пароль"
-  remember: "Запомнить меня на этом компьютере"
-  log_in: "Вход"
-
-  sign_up_h: "Регистрация"
-  password_confirmation: "Подтверждение пароля"
-  register: "Зарегистрироваться"
-
   translator: "Переводчик"
 
-  english: "Английский"
-  russian: "Русский"
-  save: "Сохранить"
+  helpers:
+    submit:
+      create: "Перевести"
 
-  Time: "Время"
-  Input language: "Исходный язык"
-  Output language: "Язык перевода"
-  Input text: "Текст"
-  Output text: "Переведенный текст"
-
-  Wrong email or password!: "Неверный email или пароль"
-  Welcome back!: "Добро пожаловать обратно!"
-  Goodbye!: "До встречи!"
-  Authorization error: "Ошибка авторизации"
+  will_paginate:
+    previous_label: "&#8592; Назад"
+    next_label: "Вперед &#8594;"
+    page_gap: "&hellip;"

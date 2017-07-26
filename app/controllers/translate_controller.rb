@@ -1,28 +1,30 @@
 class TranslateController < ApplicationController
-  attr_accessor :out, :lang_list
-
-  before_action :lang_list
-
-  @@lang_list = nil
-
-  def lang_list
-    @lang_list = YandexWrapper.lang_list
-  end
-
   def index
+    @form = TranslateForm.new(Translation.new)
+    @lang_list = LANG_LIST[I18n.locale]
+
     if request.post?
-      @out = YandexWrapper.translate(params[:input], params[:input_lang], params[:output_lang])
-      if YandexWrapper.error
-        flash.now[YandexWrapper.error[:type]] = YandexWrapper.error[:message]
-      end
-      if current_user
-        if params[:input_lang].blank?
-          params[:input_lang] = YandexWrapper.detected
+      translation = YandexWrapper.translate(params[:translate][:input],
+                                     params[:translate][:input_lang],
+                                     params[:translate][:output_lang])
+      if translation[:error]
+        flash.now[translation[:error][:type]] = translation[:error][:message]
+      else
+        params[:translate][:output] = translation[:output]
+
+        if params[:translate][:input_lang].blank?
+          params[:translate][:input_lang] = translation[:detected]
         end
-        current_user.translations.create(input_lang: params[:input_lang], output_lang: params[:output_lang], input: params[:input], output: @out)
+
+        if @form.validate(params[:translate])
+          @form.save
+        end
+
+        @form = TranslateForm.new(Translation.new)
       end
-    else
-      # for get requests
+    elsif request.get?
+      @form = TranslateForm.new(Translation.new)
+      params[:translate] = {}
     end
   end
 end

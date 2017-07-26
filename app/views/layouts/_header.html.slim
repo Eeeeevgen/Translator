@@ -12,8 +12,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         - if current_user
           li.dropdown
             a.dropdown-toggle[data-toggle="dropdown"]
-              = t('account')
-              | :
+              = t('account') + ": "
               b
                 = current_user[:email]
               b.caret

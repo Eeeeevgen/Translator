@@ -43,6 +43,12 @@ gem 'redis-namespace'
 gem 'slim'
 gem 'pundit'
 
+gem "reform", ">= 2.2.0"
+gem "reform-rails"
+gem "dry-validation"
+
+gem 'beautiful-log'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

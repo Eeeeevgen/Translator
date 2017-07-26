@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+      translation: "Translation"
+    attributes:
+      trasnaltion:
+        input_lang: "Input language"
+        output_lang: "Output language"
+        input: "Input text"
+        output: "Output text"
+        created_at: "Time"

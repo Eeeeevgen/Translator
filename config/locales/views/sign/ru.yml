@@ -1,0 +1,9 @@
+ru:
+  sign_up_h: "Регистрация"
+  password_confirmation: "Подтверждение пароля"
+  register: "Зарегистрироваться"
+
+  sign_in_h: "Вход"
+  password: "Пароль"
+  remember: "Запомнить меня на этом компьютере"
+  log_in: "Вход"

@@ -15,12 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def puts_marked(input)
-    puts 1111111111
-    puts input
-    puts 1111111111
-  end
-
   private
 
     def current_user_session

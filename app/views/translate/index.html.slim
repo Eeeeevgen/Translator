@@ -1,22 +1,26 @@
 - provide(:title, t('translator'))
-= form_tag("/", id: "tr", method: "post") do
 
-.row
-  .col-xs-6.form-group
-    = text_area_tag(:input, value=params[:input], form:"tr", class:'form-control')
-  .col-xs-6.form-group
-    = text_area_tag(:output, value=@out, readonly:true, class:'form-control')
-.row.row-centered
-  .col-centered
-    = select_tag(:input_lang,
-                        options_for_select([[t('auto'), '']] + @lang_list, params[:input_lang]),
-                        form:"tr",
-                        class:'selectpicker form-control')
-  .col-centered
-    = select_tag(:output_lang,
-                        options_for_select(@lang_list, params[:output_lang]),
-                        form:"tr",
-                        class:'selectpicker form-control')
-.row.row-centered
-  .col-centered
-    = submit_tag(t("translate"), form:"tr", class:'btn btn-primary')
+= form_for @form, url:"/"  do |f|
+  - if current_user
+    = f.hidden_field :user_id, { value: current_user.id}
+  .row
+    .col-xs-6.form-group
+      = f.text_area :input, { value: params[:translate][:input], class: 'form-control' }
+    .col-xs-6.form-group
+      = text_area_tag :output, params[:translate][:output], { readonly: true, class:'form-control' }
+  .row.row-centered
+    .col-centered
+      = f.select :input_lang,
+              options_for_select([[t('auto'), '']] + @lang_list, params[:translate][:input_lang]),
+              {},
+              { class: 'selectpicker form-control' }
+    .col-centered
+      = f.select :output_lang,
+              options_for_select(@lang_list, params[:translate][:output_lang]),
+              {},
+              { class: 'selectpicker form-control' }
+  .row.row-centered
+    .col-centered
+      = f.submit t("translate"), { class:'btn btn-primary' }
+
+

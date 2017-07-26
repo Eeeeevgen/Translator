@@ -1,47 +1,13 @@
 en:
-  hello: "Hello world"
-
-  home: "Home"
-  sign_up: "Sign Up"
-  sign_in: "Sign In"
-  sign_out: "Sign Out"
-  account: "Account"
-  translation_history: "Translation history"
-
-  powered: "Powered by"
-  powered_a: "Yandex.Translate"
-  about: "About"
-  contact: "Contact"
-
-  settings: "Settings"
-  choose_language:  "Choose language"
-  language_changed: "Language changed"
-
   auto: "Auto"
   translate: "Translate"
-
-  sign_in_h: "Sign in"
-  password: "Password"
-  remember: "Remember me on this computer"
-  log_in: "Log in"
-
-  sign_up_h: "Sign up"
-  password_confirmation: "Confirmation"
-  register: "Register"
-
   translator: "Translator"
 
-  english: "English"
-  russian: "Russian"
-  save: "Save"
+  helpers:
+    submit:
+      create: "Translate"
 
-  time: "Time"
-  Input language: "Input language"
-  Output language: "Output language"
-  Input text: "Input text"
-  Output text: "Output text"
-
-  Wrong email or password!: "Wrong email or password!"
-  Welcome back!: "Welcome back!"
-  Goodbye!: "Goodbye!"
-  Authorization error: "Authorization error"
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"

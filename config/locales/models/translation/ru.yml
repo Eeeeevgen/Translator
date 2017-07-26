@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    models:
+      translation: "Перевод"
+    attributes:
+      translation:
+        input_lang: "Исходный язык"
+        output_lang: "Язык перевода"
+        input: "Текст"
+        output: "Переведенный текст"
+        created_at: "Время"

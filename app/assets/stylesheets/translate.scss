@@ -151,7 +151,7 @@ textarea {
 }
 
 #history th:nth-child(2), #history th:nth-child(3) {
-  width: 120px;
+  width: 130px;
 }
 
 //#history th:nth-child(4), #history th:nth-child(5) {
@@ -186,8 +186,8 @@ textarea {
   width: 170px;
   display: inline-block;
   float: none;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 
@@ -222,5 +222,5 @@ textarea {
 a.dropdown-toggle {
   cursor: pointer;
   min-width: 160px;
-  text-align: center;
+  //text-align: center;
 }
