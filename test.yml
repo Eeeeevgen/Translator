@@ -26,26 +26,3 @@ comments: >
     Late afternoon is best.
     Backup contact is Nancy
     Billsmer @ 338-4338.
-
-
-
-
-
-
-#---
-#- Кот
-#- Слон
-#-
-#  Рыба:
-#    Бегемот: собака
-#    Жираф: крот
-
-#---
-#- Cat
-#- Dog
-#- Horse
-#- Fish:
-#    button: Elephant
-#    clock: time
-#- Table: spoon
-#- fork: cup
