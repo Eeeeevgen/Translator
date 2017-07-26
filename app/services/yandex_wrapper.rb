@@ -19,7 +19,7 @@ class YandexWrapper
       rescue YandexTranslator::YandexError => e
         @output = nil
         @detected = nil
-        @error = {type: :danger, message: e.message}
+        @error = { type: :danger, message: e.message }
       end
 
       { output: @output, detected: @detected, error: @error }

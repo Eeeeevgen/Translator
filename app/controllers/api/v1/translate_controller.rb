@@ -5,7 +5,7 @@ class Api::V1::TranslateController < Api::V1::BaseController
     if params[:yaml]
       data = YAML.load(params[:yaml].tempfile)
 
-      out_tree = YmlTranslate.traverse(data, params[:input_lang], params[:output_lang])
+      out_tree = YmlTranslate.tr(data, params[:input_lang], params[:output_lang])
 
       render plain: out_tree.to_yaml, content_type: 'text/yaml', status: 200
     else
