@@ -19,11 +19,8 @@ class TranslateController < ApplicationController
         if @form.validate(params[:translate])
           @form.save
         end
-
-        @form = TranslateForm.new(Translation.new)
       end
     elsif request.get?
-      @form = TranslateForm.new(Translation.new)
       params[:translate] = {}
     end
   end

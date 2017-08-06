@@ -1,6 +1,6 @@
 - provide(:title, t('translator'))
 
-= form_for @form, url:"/"  do |f|
+= form_for @form, url:"/", method: :post  do |f|
   - if current_user
     = f.hidden_field :user_id, { value: current_user.id}
   .row
